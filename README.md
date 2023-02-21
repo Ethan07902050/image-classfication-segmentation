@@ -2,14 +2,14 @@
 
 This repository implements image classification and segmentation. The image classification model is based on ConvNeXt and achieves accuracy 0.9052 on a dataset with 50 classes. The backbone of the segmentation model is VGG16-FCN32, with pretrained weights available on [Pytorch](https://pytorch.org/vision/stable/models/generated/torchvision.models.segmentation.fcn_resnet101.html#torchvision.models.segmentation.FCN_ResNet101_Weights). After finetuning, the model attains mIOU score 0.7425 on satelitte images. For more details, please refer to the [slides](https://docs.google.com/presentation/d/1lXkZrUrV209kMSGn6Lg37rno0Kp_zbdyxOl0K8F9U_E/edit?usp=sharing) or the [report](./hw1_r11922163.pdf).
 
-# Download Checkpoint
+## Download Checkpoint
 ```
 bash hw1_download.sh
 ```
 
-# Image Classification
+## Image Classification
 
-## Training
+### Training
 ```
 python classify.py \
     --train \
@@ -29,19 +29,19 @@ python classify.py \
 ```
 Model checkpoints and logs would be saved in `ckpt/p1`.
 
-## Testing
+### Testing
 ```
 bash hw1_1.sh /path/to/test/data /path/to/output.csv
 ```
 
-## Feature Visualization
+### Feature Visualization
 The figures illustrate the extracted feature before the linear projection head. we can observe that PCA might not be a proper choice for feature visualization in this case. On the contrary, t-SNE shows that the model is actually learning how to differentiate the images. 
 
 ![](./assets/pca-tsne.png)
 
-# Image Segmentation
+## Image Segmentation
 
-## Training
+### Training
 ```
 python segment.py \
     --train \
@@ -60,10 +60,10 @@ python segment.py \
 ```
 Model checkpoints and logs would be saved in `ckpt/p2`.
 
-## Testing
+### Testing
 ```
 bash hw1_2.sh /path/to/test/data /path/to/output/dir
 ```
 
-## Examples
+### Examples
 ![](./assets/segmentation.png)
